@@ -10,5 +10,6 @@ target 'InterexyTest' do
 
 pod 'Kingfisher'
 pod 'Alamofire'
+pod 'DeviceKit', '~> 4.0'
 
 end

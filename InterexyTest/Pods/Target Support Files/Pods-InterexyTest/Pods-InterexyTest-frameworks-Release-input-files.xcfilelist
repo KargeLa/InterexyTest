@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-InterexyTest/Pods-InterexyTest-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
