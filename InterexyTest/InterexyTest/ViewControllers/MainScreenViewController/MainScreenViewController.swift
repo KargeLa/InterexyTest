@@ -93,7 +93,7 @@ final class MainScreenViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .estimated(300 * AppConstants.SizeFactor)
+                heightDimension: .estimated(350 * AppConstants.SizeFactor)
             ),
             subitems: [item, item]
         )
@@ -156,7 +156,7 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             let movieDetailsViewController = MovieDetailsViewController(nibName: "MovieDetailsViewController",
                                                                         bundle: nil)
             movieDetailsViewController.movieDetails = movieDetails
-            self.present(movieDetailsViewController, animated: true)
+            self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
         }
     }
 }

@@ -21,6 +21,7 @@ final class ApiManager {
     
     private enum Servers {
         static let baseURL = "https://api.themoviedb.org/3/"
+        static let baseImageURL = "https://www.themoviedb.org/"
     }
     
     /*
@@ -30,10 +31,18 @@ final class ApiManager {
     private enum EndPoints {
         static let popularMovie = "movie/popular"
         static let details = "movie/"
+        static let movieImage = "t/p/w600_and_h900_bestv2/"
     }
     
     /*
      MARK: -
+     */
+    
+    func createImageURL() -> String {
+        return Servers.baseImageURL + EndPoints.movieImage
+    }
+    
+    /*
      */
     
     func getPopularMovies(completion: @escaping ((PopularMovies) -> ())) {
