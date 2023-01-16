@@ -12,13 +12,13 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - MovieTeam
 struct MovieTeam: Codable {
     let id: Int?
     let cast, crew: [Person]?
 }
 
-// MARK: - Cast
+// MARK: - Person
 struct Person: Codable {
     let adult: Bool?
     let gender, id: Int?

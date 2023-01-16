@@ -5,21 +5,20 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Popular movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Popular movies" id="BYZ-38-t0r" customClass="MainScreenViewController" customModule="InterexyTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainScreenViewController" customModule="InterexyTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="eYm-D1-539">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Znc-z0-QCW">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Color_11"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hlm-VO-dQZ">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -36,7 +35,7 @@
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mzy-BG-fI1"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Color_11"/>
                         <constraints>
                             <constraint firstItem="Znc-z0-QCW" firstAttribute="top" secondItem="Mzy-BG-fI1" secondAttribute="top" id="0Tw-cp-Xao"/>
                             <constraint firstItem="Mzy-BG-fI1" firstAttribute="bottom" secondItem="Znc-z0-QCW" secondAttribute="bottom" id="5uf-4X-HMU"/>
@@ -46,7 +45,7 @@
                             <constraint firstItem="5x9-QH-MuP" firstAttribute="centerY" secondItem="eYm-D1-539" secondAttribute="centerY" id="TQf-9b-OrM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qsF-WG-SZZ"/>
+                    <navigationItem key="navigationItem" title="Popular movies" id="qsF-WG-SZZ"/>
                     <connections>
                         <outlet property="activityIndicator" destination="5x9-QH-MuP" id="khG-2P-h19"/>
                         <outlet property="collectionView" destination="Znc-z0-QCW" id="MDF-Oe-02H"/>
@@ -64,6 +63,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jC0-rX-EHT">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -106,7 +106,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="Color_11"/>
                                                 <constraints>
                                                     <constraint firstItem="5Sa-KE-gNH" firstAttribute="leading" secondItem="5Gq-1Y-YSu" secondAttribute="leading" constant="24" id="3eJ-Wb-3iT"/>
                                                     <constraint firstAttribute="height" constant="200" id="989-Lc-XLa"/>
@@ -267,7 +267,7 @@
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1uq-ni-Zi3">
                                                         <rect key="frame" x="0.0" y="47.333333333333371" width="393" height="302.66666666666669"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="Color_11"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1sz-PL-rCN">
                                                             <size key="itemSize" width="128" height="128"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -281,7 +281,7 @@
                                                         </connections>
                                                     </collectionView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="Color_11"/>
                                                 <constraints>
                                                     <constraint firstItem="e5m-aC-HuP" firstAttribute="centerX" secondItem="MNi-8H-thi" secondAttribute="centerX" id="87f-gt-1Ua"/>
                                                     <constraint firstItem="I1x-yo-GeX" firstAttribute="leading" secondItem="MNi-8H-thi" secondAttribute="leading" constant="24" id="9Xa-Ko-PLZ"/>
@@ -307,7 +307,7 @@
                                                 </wkWebViewConfiguration>
                                             </wkWebView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="Color_11"/>
                                         <constraints>
                                             <constraint firstItem="ABD-WM-fCu" firstAttribute="leading" secondItem="3h6-fq-13k" secondAttribute="leading" id="04i-BV-bxb"/>
                                             <constraint firstAttribute="trailing" secondItem="ABD-WM-fCu" secondAttribute="trailing" id="1ks-px-850"/>
@@ -337,11 +337,11 @@
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWp-G2-tV5">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Color_11"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hNl-Qg-l7P"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Color_11"/>
                         <constraints>
                             <constraint firstItem="hNl-Qg-l7P" firstAttribute="bottom" secondItem="HGi-yN-fAO" secondAttribute="bottom" id="AQN-aE-ykU"/>
                             <constraint firstAttribute="trailing" secondItem="ZWp-G2-tV5" secondAttribute="trailing" id="FRb-69-Fqe"/>
@@ -382,8 +382,5 @@
         <namedColor name="Color_7">
             <color red="0.125" green="0.125" blue="0.37299999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

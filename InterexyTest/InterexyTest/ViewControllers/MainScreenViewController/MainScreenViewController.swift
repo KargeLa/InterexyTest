@@ -37,8 +37,9 @@ final class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Popular movies"
-        
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: "Color_7")!]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.backgroundColor = UIColor(named: "Color_11")!
         setupCollectionView()
         getData(page: 1)
     }
@@ -128,7 +129,7 @@ final class MainScreenViewController: UIViewController {
         item.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: 8 * AppConstants.SizeFactor,
-            bottom: 0,
+            bottom: 24 * AppConstants.SizeFactor,
             trailing: 8 * AppConstants.SizeFactor
         )
 

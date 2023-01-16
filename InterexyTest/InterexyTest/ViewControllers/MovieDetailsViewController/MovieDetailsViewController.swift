@@ -48,6 +48,9 @@ final class MovieDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.backgroundColor = UIColor(named: "Color_11")!
+        
         setupCollectionView()
         
         getDetailsFor(movieID)

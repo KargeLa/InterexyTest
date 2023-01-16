@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -48,7 +48,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="H5m-Zf-YSi" firstAttribute="leading" secondItem="p4q-Tg-L59" secondAttribute="leading" id="Chu-eb-lgB"/>
                                                     <constraint firstItem="wzU-5C-5xd" firstAttribute="leading" secondItem="p4q-Tg-L59" secondAttribute="leading" id="Mfv-Jy-cbB"/>
@@ -60,9 +60,10 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Color_11"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="bLM-CA-7s1" secondAttribute="trailing" constant="8" id="cuC-pJ-X3f"/>
                                     <constraint firstItem="bLM-CA-7s1" firstAttribute="top" secondItem="cD4-Qc-ZZd" secondAttribute="top" constant="8" id="nYs-eX-6zf"/>
@@ -71,6 +72,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" name="Color_11"/>
                     </stackView>
                 </subviews>
             </view>
@@ -96,8 +98,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Color_11">
+            <color red="0.86699998378753662" green="0.94900000095367432" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -12,13 +12,13 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - VideoModel
 struct VideoModel: Codable {
     let id: Int?
     let results: [Video]?
 }
 
-// MARK: - Result
+// MARK: - Video
 struct Video: Codable {
     let iso639_1: ISO639_1?
     let iso3166_1: ISO3166_1?
