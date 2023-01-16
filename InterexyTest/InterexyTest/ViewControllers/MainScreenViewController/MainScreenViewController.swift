@@ -6,10 +6,7 @@
 //
 
 import UIKit
-
-protocol MovieProtocol {
-    var movie: Movie! { get set }
-}
+import Kingfisher
 
 /*
  MARK: - -
@@ -21,17 +18,16 @@ final class MainScreenViewController: UIViewController {
      MARK: - Properties
      */
     
-    private var popularMovies: [Movie] = [] {
-        didSet {
-            
-        }
-    }
+    private var isLoading = false
+    private var totalPages = 0
+    private var pagesLoaded = 0
+    private var popularMovies: [Movie] = []
     
     /*
      MARK: - Outlets
      */
     
-    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private var collectionView: UICollectionView!
     
     /*
@@ -41,25 +37,74 @@ final class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-         */
+        title = "Popular movies"
         
-        self.setupCollectionView()
-        
-        /*
-         */
-        
-        ApiManager.shared.getPopularMovies { [weak self] popularMovies in
-            guard let self = self else { return }
-            
-            self.popularMovies = popularMovies.results
-            self.collectionView.reloadData()
-        }
+        setupCollectionView()
+        getData(page: 1)
     }
     
     /*
      MARK: - Supporting
      */
+    
+   private func showActivityIndicator() {
+       activityIndicator.startAnimating()
+   }
+
+   private func hideActivityIndicator() {
+       activityIndicator.stopAnimating()
+   }
+    
+    private func getData(page: Int) {
+        ApiManager.shared.getPopularMovies(page: page) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let movies):
+                (movies.results ?? []).forEach { self.popularMovies.append($0) }
+                self.totalPages = movies.totalPages ?? 1
+                self.pagesLoaded += 1
+            case .failure(_):
+                self.showAlert()
+            }
+            
+            self.collectionView.reloadData()
+        }
+    }
+    
+    private func loadMoreData() {
+        if !isLoading, totalPages != pagesLoaded {
+            isLoading = true
+            showActivityIndicator()
+            DispatchQueue.global().async { [weak self] in
+                guard let self = self else { return }
+                
+                let nextPage = self.pagesLoaded + 1
+                self.getData(page: nextPage)
+                
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
+                    self.collectionView.reloadData()
+                    self.hideActivityIndicator()
+                    self.isLoading = false
+                }
+            }
+        }
+    }
+    
+    private func showAlert() {
+        let title = "Something went wrong"
+        let message = "Please try again later"
+        let OKActionTitle = "OK"
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OKAlertAction = UIAlertAction(title: OKActionTitle, style: .default)
+        
+        alertController.addAction(OKAlertAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
     
     private func setupCollectionView() {
         collectionView.register(
@@ -87,9 +132,6 @@ final class MainScreenViewController: UIViewController {
             trailing: 8 * AppConstants.SizeFactor
         )
 
-        /*
-         */
-
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
@@ -103,10 +145,7 @@ final class MainScreenViewController: UIViewController {
             bottom: 24 * AppConstants.SizeFactor,
             trailing: 0
         )
-
-        /*
-         */
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 40 * AppConstants.SizeFactor,
@@ -115,10 +154,15 @@ final class MainScreenViewController: UIViewController {
             trailing: 16 * AppConstants.SizeFactor
         )
 
-        /*
-         */
-
         return UICollectionViewCompositionalLayout(section: section)
+    }
+    
+    private func goToDetailsViewController(_ movieID: Int) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let movieDetailsViewController = storyBoard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
+        movieDetailsViewController.movieID = movieID
+        
+        navigationController?.pushViewController(movieDetailsViewController, animated: true)
     }
 }
 
@@ -141,22 +185,20 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let movie = popularMovies[indexPath.row]
         
-        /*
-         */
+        if indexPath.row == popularMovies.count - 1, !isLoading {
+            loadMoreData()
+        }
         
-        if var cell = cell as? MovieProtocol {
-            cell.movie = movie
+        if let cell = cell as? MovieCell {
+            cell.setup(with: movie)
+            
+            let url = URL(string: ApiManager.shared.createImageURL() + "\(movie.backdropPath ?? "")")
+            cell.movieImageView.kf.indicatorType = .activity
+            cell.movieImageView.kf.setImage(with: url, options: [.transition(.fade(1))])
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        ApiManager.shared.getMovieDetails(movieID: popularMovies[indexPath.row].id) { [weak self] movieDetails in
-            guard let self = self else { return }
-            
-            let movieDetailsViewController = MovieDetailsViewController(nibName: "MovieDetailsViewController",
-                                                                        bundle: nil)
-            movieDetailsViewController.movieDetails = movieDetails
-            self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
-        }
+        goToDetailsViewController(popularMovies[indexPath.row].id ?? 0)
     }
 }

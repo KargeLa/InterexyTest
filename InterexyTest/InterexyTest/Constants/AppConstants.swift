@@ -10,13 +10,11 @@ import DeviceKit
 
 final class AppConstants {
     
-    /*
-     */
+    
     
     static let apiKey = "d3c3437f617c8a82a58d56a75ab29833"
     
-    /*
-     */
+    
     
     static var SizeFactor: CGFloat {
         if UIDevice.current.userInterfaceIdiom == .pad {

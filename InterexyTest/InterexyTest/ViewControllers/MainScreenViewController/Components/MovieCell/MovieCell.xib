@@ -25,6 +25,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="exY-Zd-kjK"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Km-Xg-2PO">
                                 <rect key="frame" x="0.0" y="250" width="192" height="100"/>
@@ -74,6 +79,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uC2-CU-fQB">
                         <rect key="frame" x="16" y="230" width="40" height="40"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nU1-eY-z4f" customClass="CircularProgressView" customModule="InterexyTest" customModuleProvider="target">
+                                <rect key="frame" x="2" y="2" width="36" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eah-fW-OOy">
                                 <rect key="frame" x="8" y="8" width="24" height="24"/>
                                 <subviews>
@@ -102,11 +111,15 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eah-fW-OOy" firstAttribute="top" secondItem="uC2-CU-fQB" secondAttribute="top" constant="8" id="GkY-vz-pe8"/>
+                            <constraint firstItem="nU1-eY-z4f" firstAttribute="top" secondItem="uC2-CU-fQB" secondAttribute="top" constant="2" id="HSX-56-102"/>
+                            <constraint firstAttribute="bottom" secondItem="nU1-eY-z4f" secondAttribute="bottom" constant="2" id="IGl-oJ-t4E"/>
                             <constraint firstAttribute="width" constant="40" id="Ih6-St-6eJ"/>
+                            <constraint firstAttribute="trailing" secondItem="nU1-eY-z4f" secondAttribute="trailing" constant="2" id="NL7-ql-ZWZ"/>
                             <constraint firstItem="eah-fW-OOy" firstAttribute="leading" secondItem="uC2-CU-fQB" secondAttribute="leading" constant="8" id="aI1-uQ-brG"/>
                             <constraint firstAttribute="trailing" secondItem="eah-fW-OOy" secondAttribute="trailing" constant="8" id="axF-UQ-Y3M"/>
                             <constraint firstAttribute="bottom" secondItem="eah-fW-OOy" secondAttribute="bottom" constant="8" id="clI-lo-gWv"/>
                             <constraint firstAttribute="height" constant="40" id="dMw-QD-mXS"/>
+                            <constraint firstItem="nU1-eY-z4f" firstAttribute="leading" secondItem="uC2-CU-fQB" secondAttribute="leading" constant="2" id="r7D-El-xYk"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -122,6 +135,7 @@
             </constraints>
             <size key="customSize" width="196" height="267"/>
             <connections>
+                <outlet property="circularProgressView" destination="nU1-eY-z4f" id="ow8-Oh-joF"/>
                 <outlet property="movieImageView" destination="M7X-dL-94m" id="wpk-TW-uA9"/>
                 <outlet property="percentLabel" destination="pYF-bh-BJU" id="vzc-rR-mxj"/>
                 <outlet property="progressContainerView" destination="uC2-CU-fQB" id="EjH-Al-cNI"/>

@@ -23,8 +23,7 @@ final class CircularProgressView: UIView {
         
     }()
     
-    /*
-     */
+    
     
     private lazy var progressLayer : CAShapeLayer = {
         let progress = CAShapeLayer()
@@ -45,16 +44,14 @@ final class CircularProgressView: UIView {
         createCircularPath()
     }
     
-    /*
-     */
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         createCircularPath()
     }
     
-    /*
-     */
+    
     
     override func layoutSubviews() {
         updatePath()
@@ -67,15 +64,13 @@ final class CircularProgressView: UIView {
     private func createCircularPath() {
         updatePath()
         
-        /*
-         */
+        
         
         layer.addSublayer(circleLayer)
         layer.addSublayer(progressLayer)
     }
     
-    /*
-     */
+    
     
     private func updatePath() {
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0),
@@ -94,12 +89,14 @@ final class CircularProgressView: UIView {
  */
 
 extension CircularProgressView {
-    func progressAnimation(_ percentage: Float) {
+    func progressAnimation(_ percentage: Int, backgroundColor: UIColor, progressColor: UIColor) {
         let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
         circularProgressAnimation.duration = 1
-        circularProgressAnimation.toValue = Float( percentage / 100 )
+        circularProgressAnimation.toValue = Float(Float(percentage) / 100)
         circularProgressAnimation.fillMode = .forwards
         circularProgressAnimation.isRemovedOnCompletion = false
         progressLayer.add(circularProgressAnimation, forKey: "progressAnim")
+        progressLayer.strokeColor = progressColor.cgColor
+        circleLayer.strokeColor = backgroundColor.cgColor
     }
 }

@@ -18,11 +18,14 @@
 		CEA4186A29731E5400AAD1C5 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA4186829731E5400AAD1C5 /* MovieCell.xib */; };
 		CEA4186F2973564E00AAD1C5 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4186E2973564E00AAD1C5 /* MovieDetails.swift */; };
 		CEA4187229735B2A00AAD1C5 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4187129735B2A00AAD1C5 /* MovieDetailsViewController.swift */; };
-		CEA4187429735B5E00AAD1C5 /* MovieDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA4187329735B5E00AAD1C5 /* MovieDetailsViewController.xib */; };
 		CEBAC4D1297406B100746F2D /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC4D0297406B100746F2D /* CircularProgressView.swift */; };
+		CEBAC4D329744ED200746F2D /* MovieTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC4D229744ED200746F2D /* MovieTeam.swift */; };
+		CEBAC4D629747E8200746F2D /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC4D529747E8200746F2D /* VideoModel.swift */; };
 		CEBF86F82972E3180036EC29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF86F72972E3180036EC29 /* AppDelegate.swift */; };
 		CEBF86FA2972E3180036EC29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF86F92972E3180036EC29 /* SceneDelegate.swift */; };
 		CEBF87012972E31A0036EC29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBF87002972E31A0036EC29 /* Assets.xcassets */; };
+		CEF3EDA429757A26002BC854 /* ActorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3EDA229757A26002BC854 /* ActorCell.swift */; };
+		CEF3EDA529757A26002BC854 /* ActorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF3EDA329757A26002BC854 /* ActorCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,13 +42,16 @@
 		CEA4186829731E5400AAD1C5 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		CEA4186E2973564E00AAD1C5 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		CEA4187129735B2A00AAD1C5 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
-		CEA4187329735B5E00AAD1C5 /* MovieDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailsViewController.xib; sourceTree = "<group>"; };
 		CEBAC4D0297406B100746F2D /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		CEBAC4D229744ED200746F2D /* MovieTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTeam.swift; sourceTree = "<group>"; };
+		CEBAC4D529747E8200746F2D /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		CEBF86F42972E3180036EC29 /* InterexyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterexyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBF86F72972E3180036EC29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEBF86F92972E3180036EC29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CEBF87002972E31A0036EC29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEBF87052972E31A0036EC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF3EDA229757A26002BC854 /* ActorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorCell.swift; sourceTree = "<group>"; };
+		CEF3EDA329757A26002BC854 /* ActorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActorCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,14 @@
 				5D353986D43BC840B293F556 /* Pods-InterexyTest.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE31DCCC297538BE009ABA92 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CEF3EDA1297579FC002BC854 /* ActorCell */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		CEA4185E29730E0900AAD1C5 /* Constants */ = {
@@ -98,8 +112,8 @@
 		CEA4187029735A5800AAD1C5 /* MovieDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CE31DCCC297538BE009ABA92 /* Components */,
 				CEA4187129735B2A00AAD1C5 /* MovieDetailsViewController.swift */,
-				CEA4187329735B5E00AAD1C5 /* MovieDetailsViewController.xib */,
 			);
 			path = MovieDetailsViewController;
 			sourceTree = "<group>";
@@ -161,6 +175,8 @@
 			children = (
 				CEA418632973182600AAD1C5 /* PopularMovies.swift */,
 				CEA4186E2973564E00AAD1C5 /* MovieDetails.swift */,
+				CEBAC4D229744ED200746F2D /* MovieTeam.swift */,
+				CEBAC4D529747E8200746F2D /* VideoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +196,15 @@
 				CEA418582973085800AAD1C5 /* MainScreenViewController.swift */,
 			);
 			path = MainScreenViewController;
+			sourceTree = "<group>";
+		};
+		CEF3EDA1297579FC002BC854 /* ActorCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEF3EDA229757A26002BC854 /* ActorCell.swift */,
+				CEF3EDA329757A26002BC854 /* ActorCell.xib */,
+			);
+			path = ActorCell;
 			sourceTree = "<group>";
 		};
 		D6CC714B23C6A62287428C72 /* Frameworks */ = {
@@ -250,11 +275,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF3EDA529757A26002BC854 /* ActorCell.xib in Resources */,
 				CEA418592973085800AAD1C5 /* LaunchScreen.storyboard in Resources */,
 				CEBF87012972E31A0036EC29 /* Assets.xcassets in Resources */,
 				CEA4186A29731E5400AAD1C5 /* MovieCell.xib in Resources */,
 				CEA4185A2973085800AAD1C5 /* Main.storyboard in Resources */,
-				CEA4187429735B5E00AAD1C5 /* MovieDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,9 +335,12 @@
 				CEA4186929731E5400AAD1C5 /* MovieCell.swift in Sources */,
 				CEA4185D29730D9000AAD1C5 /* APIManager.swift in Sources */,
 				CEA4187229735B2A00AAD1C5 /* MovieDetailsViewController.swift in Sources */,
+				CEBAC4D329744ED200746F2D /* MovieTeam.swift in Sources */,
 				CEBF86F82972E3180036EC29 /* AppDelegate.swift in Sources */,
+				CEF3EDA429757A26002BC854 /* ActorCell.swift in Sources */,
 				CEA4186F2973564E00AAD1C5 /* MovieDetails.swift in Sources */,
 				CEA418642973182600AAD1C5 /* PopularMovies.swift in Sources */,
+				CEBAC4D629747E8200746F2D /* VideoModel.swift in Sources */,
 				CEA4185B2973085800AAD1C5 /* MainScreenViewController.swift in Sources */,
 				CEBF86FA2972E3180036EC29 /* SceneDelegate.swift in Sources */,
 				CEBAC4D1297406B100746F2D /* CircularProgressView.swift in Sources */,
@@ -443,9 +471,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M6YCX5SN6F;
+				DEVELOPMENT_TEAM = CH3F29MQH7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InterexyTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -460,6 +489,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.InterexyTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -472,9 +502,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M6YCX5SN6F;
+				DEVELOPMENT_TEAM = CH3F29MQH7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InterexyTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -489,6 +520,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.InterexyTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
