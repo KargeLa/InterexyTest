@@ -85,16 +85,23 @@ final class MainScreenViewController: UIViewController {
                 guard let self = self else { return }
                 
                 let nextPage = self.pagesLoaded + 1
-                self.getData(page: nextPage) {
-                    DispatchQueue.main.async { [weak self] in
-                        guard let self = self else { return }
-                        
-                        self.collectionView.reloadData()
-                        self.hideActivityIndicator()
-                        self.isLoading = false
-                    }
+                
+                self.getData(page: nextPage) { [weak self] in
+                    guard let self = self else { return }
+                    
+                    self.updateColletionView()
                 }
             }
+        }
+    }
+    
+    private func updateColletionView() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.collectionView.reloadData()
+            self.hideActivityIndicator()
+            self.isLoading = false
         }
     }
     
