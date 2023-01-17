@@ -150,23 +150,8 @@ final class MovieDetailsViewController: UIViewController {
         progressContainerView.layer.cornerRadius = progressContainerView.frame.height / 2
         
         let progress = Int((movieDetails?.voteAverage ?? 0.0) * 10)
-        let colors = getColors(for: progress)
         
-        circularProgressView.progressAnimation(progress,
-                                               backgroundColor: colors.1,
-                                               progressColor: colors.0)
-    }
-    
-    private func getColors(for progress: Int) -> (UIColor, UIColor) {
-        var colors: (_ : UIColor, _ : UIColor)
-        if progress <= 20 {
-            colors = (UIColor(named: "Color_5")!, UIColor(named: "Color_6")!)
-        } else if progress > 20 && progress < 70 {
-            colors = (UIColor(named: "Color_3")!, UIColor(named: "Color_4")!)
-        } else {
-            colors = (UIColor(named: "Color_1")!, UIColor(named: "Color_2")!)
-        }
-        return colors
+        circularProgressView.progressAnimation(progress)
     }
     
     private func getDetailsFor(_ movieID: Int) {

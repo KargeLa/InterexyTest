@@ -89,14 +89,26 @@ final class CircularProgressView: UIView {
  */
 
 extension CircularProgressView {
-    func progressAnimation(_ percentage: Int, backgroundColor: UIColor, progressColor: UIColor) {
+    func progressAnimation(_ percentage: Int) {
         let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
         circularProgressAnimation.duration = 1
         circularProgressAnimation.toValue = Float(Float(percentage) / 100)
         circularProgressAnimation.fillMode = .forwards
         circularProgressAnimation.isRemovedOnCompletion = false
         progressLayer.add(circularProgressAnimation, forKey: "progressAnim")
-        progressLayer.strokeColor = progressColor.cgColor
-        circleLayer.strokeColor = backgroundColor.cgColor
+        progressLayer.strokeColor = getColors(for: percentage).0.cgColor
+        circleLayer.strokeColor = getColors(for: percentage).1.cgColor
+    }
+    
+    private func getColors(for progress: Int) -> (UIColor, UIColor) {
+        var colors: (_ : UIColor, _ : UIColor)
+        if progress <= 20 {
+            colors = (UIColor(named: "Color_5")!, UIColor(named: "Color_6")!)
+        } else if progress > 20 && progress < 70 {
+            colors = (UIColor(named: "Color_3")!, UIColor(named: "Color_4")!)
+        } else {
+            colors = (UIColor(named: "Color_1")!, UIColor(named: "Color_2")!)
+        }
+        return colors
     }
 }

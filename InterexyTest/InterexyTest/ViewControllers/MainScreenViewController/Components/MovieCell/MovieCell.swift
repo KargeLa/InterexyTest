@@ -52,9 +52,7 @@ final class MovieCell: UICollectionViewCell {
         let progress = Int((movie.voteAverage ?? 0.0) * 10)
         let colors = getColors(for: progress)
         
-        circularProgressView.progressAnimation(progress,
-                                               backgroundColor: colors.1,
-                                               progressColor: colors.0)
+        circularProgressView.progressAnimation(progress)
         
         titleLabel.text = movie.title
         releaseDateLabel.text = movie.releaseDate
