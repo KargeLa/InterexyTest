@@ -48,13 +48,13 @@ final class MainScreenViewController: UIViewController {
      MARK: - Supporting
      */
     
-   private func showActivityIndicator() {
-       activityIndicator.startAnimating()
-   }
-
-   private func hideActivityIndicator() {
-       activityIndicator.stopAnimating()
-   }
+    private func showActivityIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    private func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+    }
     
     private func getData(page: Int) {
         ApiManager.shared.getPopularMovies(page: page) { [weak self] result in
@@ -132,7 +132,7 @@ final class MainScreenViewController: UIViewController {
             bottom: 24 * AppConstants.SizeFactor,
             trailing: 8 * AppConstants.SizeFactor
         )
-
+        
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
@@ -154,7 +154,7 @@ final class MainScreenViewController: UIViewController {
             bottom: 40 * AppConstants.SizeFactor,
             trailing: 16 * AppConstants.SizeFactor
         )
-
+        
         return UICollectionViewCompositionalLayout(section: section)
     }
     
