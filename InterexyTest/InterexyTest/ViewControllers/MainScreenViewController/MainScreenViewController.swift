@@ -41,7 +41,11 @@ final class MainScreenViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationController?.navigationBar.backgroundColor = UIColor(named: "Color_11")!
         setupCollectionView()
-        getData(page: 1)
+        getData(page: 1) { [weak self] in
+            guard let self = self else { return }
+            
+            self.collectionView.reloadData()
+        }
     }
     
     /*
@@ -56,7 +60,7 @@ final class MainScreenViewController: UIViewController {
         activityIndicator.stopAnimating()
     }
     
-    private func getData(page: Int) {
+    private func getData(page: Int, completion: @escaping (() -> ())) {
         ApiManager.shared.getPopularMovies(page: page) { [weak self] result in
             guard let self = self else { return }
             
@@ -69,7 +73,7 @@ final class MainScreenViewController: UIViewController {
                 self.showAlert()
             }
             
-            self.collectionView.reloadData()
+            completion()
         }
     }
     
@@ -81,14 +85,14 @@ final class MainScreenViewController: UIViewController {
                 guard let self = self else { return }
                 
                 let nextPage = self.pagesLoaded + 1
-                self.getData(page: nextPage)
-                
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    
-                    self.collectionView.reloadData()
-                    self.hideActivityIndicator()
-                    self.isLoading = false
+                self.getData(page: nextPage) {
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        
+                        self.collectionView.reloadData()
+                        self.hideActivityIndicator()
+                        self.isLoading = false
+                    }
                 }
             }
         }
